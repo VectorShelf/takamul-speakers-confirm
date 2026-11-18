@@ -71,7 +71,8 @@
       var j = null; try { j = await res.json(); } catch (e) { }
       if (res.ok && j && j.ok === true && j.ref) { onSuccess(j.ref); return; }
       var msg = (j && j.message) || "تعذّر حفظ تأكيد المشاركة. لم يُسجَّل شيء، وبياناتك محفوظة في الصفحة. يُرجى المحاولة مرة أخرى.";
-      if (j && j.fields) { Object.keys(j.fields).forEach(function (k) { setErr(k, j.fields[k]); }); }
+      if (j && j.fields) { (Array.isArray(j.fields) ? j.fields : Object.keys(j.fields)).forEach(function (k) { setErr(k, "يُرجى مراجعة هذا الحقل."); }); msg = "يُرجى مراجعة الحقول المُعلَّمة."; }
+      if (j && j.code === "CLOSED") { msg = "استقبال التأكيدات متوقف حاليًا. للاستفسار: info@wifada.sa"; }
       showBanner(msg);
     } catch (e) {
       showBanner(e && e.name === "AbortError" ? "استغرق الإرسال وقتًا طويلًا. لم نتأكد من الحفظ؛ يُرجى المحاولة مرة أخرى (لن يتكرر التسجيل)." : "تعذّر الاتصال بالشبكة. لم يُسجَّل شيء، وبياناتك محفوظة في الصفحة. تحقق من الاتصال وأعد المحاولة.");

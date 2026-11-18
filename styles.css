@@ -1,7 +1,7 @@
 /* Takamul speakers invitation — brand colours only: #015363 #36B8A0 #C5A342 #013E4A (+ white/tints). Teal/gold decorative only.
-   Error colour = functional UI state. Thmanyah font is used if installed (web-embedding needs a licence; not bundled). */
+   Error colour = functional UI state. Thmanyah sans is loaded by fonts.js (packaged, unmodified). */
 :root{--p:#015363;--pd:#013E4A;--t:#36B8A0;--g:#C5A342;--ink:#013E4A;--sec:#3F6B75;--rule:#D3E0E3;--surf:#F2F6F7;--err:#A4262C;
- --font:"thmanyah sans","Thmanyah Sans","thmanyahsans-Regular","Segoe UI","Noto Sans Arabic","Geeza Pro",Tahoma,sans-serif}
+ --font:"TK Sans","thmanyah sans","Thmanyah Sans","thmanyahsans-Regular","Segoe UI","Noto Sans Arabic","Geeza Pro",Tahoma,sans-serif}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 [hidden]{display:none!important}
 body{margin:0;background:#fff;color:var(--ink);font:400 17px/1.8 var(--font)}
@@ -74,7 +74,8 @@ input.bad,textarea.bad{border-color:var(--err);background:#fff}
 .actions{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center}
 .contact{margin:0;color:var(--sec);font-size:15px}.contact a{color:var(--p)}
 .banner{margin:0 0 24px;padding:14px 16px;border-radius:12px;border:1.5px solid var(--err);background:#fff;color:var(--err);font-weight:500}
-.demo{margin:0 0 26px;padding:12px 16px;border-radius:12px;background:var(--surf);border-inline-start:4px solid var(--g);color:var(--pd);font-weight:500;font-size:15px}
+.demo{margin:0 0 22px;display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--sec)}
+.demo::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--g)}
 .hp{position:absolute;inset-inline-start:-9999px;height:0;overflow:hidden}
 .okcard{text-align:center;padding:90px 20px 60px}.okcard:focus{outline:none}
 .okmark{width:84px;height:84px;margin:0 auto 18px;border-radius:50%;background:var(--p);position:relative}
@@ -119,7 +120,6 @@ body.done .mbar{display:none!important}
  .actions{flex-direction:column;align-items:stretch;gap:14px}
  .btn.primary{width:100%;min-height:58px}
  .contact{text-align:center}
- .demo{font-size:14.5px}
  .okcard{padding:56px 10px 40px}.okcard h2{font-size:30px}
 }
 @media (max-width:360px){.mbar span{display:none}h1{font-size:28px}}

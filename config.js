@@ -1,4 +1,2 @@
-// Deployment settings. Leave endpoint empty = DEMO mode (validates only; nothing is sent or stored, and no success is claimed).
-// To go live: set endpoint to the HTTPS URL that returns {ok:true, ref} only after the response was really saved
-// (e.g. the Apps Script /exec URL, or "/api/submit" on a host that runs api/submit.js).
-window.TK_CONFIG = { endpoint: "" };
+// Live endpoint: Google Apps Script web app bound to the original Google Form (answers {ok:true, ref} only after the response is saved).
+window.TK_CONFIG = { endpoint: "https://script.google.com/macros/s/AKfycbx4is_65mUzCXitHEtPuIQ4DEGAG6nOwcUVFXJxEj6BeLY54lrD6vBBX-0L3Kow_t9PyQ/exec" };
