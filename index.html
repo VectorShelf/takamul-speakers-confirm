@@ -7,6 +7,15 @@
 <meta name="description" content="دعوة خاصة لتأكيد مشاركة المتحدثين في ملتقى تكامل للعمل التطوعي 2026.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#013E4A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:title" content="تأكيد مشاركة المتحدثين · ملتقى تكامل 2026">
+<meta property="og:description" content="دعوة خاصة للمتحدثين لتأكيد المشاركة واستكمال البيانات الإعلامية.">
+<meta property="og:url" content="https://vectorshelf.github.io/takamul-speakers-confirm/">
+<meta property="og:image" content="https://vectorshelf.github.io/takamul-speakers-confirm/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -33,6 +42,12 @@
   </aside>
 
   <main class="main">
+    <nav class="mbar" aria-label="خطوات التعبئة">
+      <a href="#s1" class="on"><i>1</i><span>البيانات</span></a>
+      <a href="#s2"><i>2</i><span>الإعلامية</span></a>
+      <a href="#s3"><i>3</i><span>الملحق</span></a>
+      <b class="mbar-line" aria-hidden="true"><b id="mbarFill"></b></b>
+    </nav>
     <div class="main-in">
       <form id="f" class="form" novalidate autocomplete="on">
         <div id="demo" class="demo" hidden>نسخة تجريبية للمعاينة: تُفحص البيانات هنا ولا تُرسل ولا تُحفظ في أي مكان.</div>
@@ -108,8 +123,9 @@
 <script src="config.js"></script>
 <script src="app.js"></script>
 <script>
-(function(){var secs=[].slice.call(document.querySelectorAll(".blk")),li=[].slice.call(document.querySelectorAll("#steps li"));
-function on(){var y=window.innerHeight*.35,cur=0;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<y){cur=i;}});li.forEach(function(l,i){l.classList.toggle("on",i===cur);});}
+(function(){var secs=[].slice.call(document.querySelectorAll(".blk")),li=[].slice.call(document.querySelectorAll("#steps li")),mb=[].slice.call(document.querySelectorAll(".mbar a")),fill=document.getElementById("mbarFill");
+function on(){var y=window.innerHeight*.35,cur=0;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<y){cur=i;}});li.forEach(function(l,i){l.classList.toggle("on",i===cur);});mb.forEach(function(l,i){l.classList.toggle("on",i===cur);l.classList.toggle("done",i<cur);});
+var f=document.getElementById("f"),r=f.getBoundingClientRect(),p=Math.max(0,Math.min(1,(window.innerHeight*.5-r.top)/r.height));if(fill){fill.style.width=(p*100).toFixed(1)+"%";}}
 window.addEventListener("scroll",on,{passive:true});window.addEventListener("resize",on);on();})();
 </script>
 </body>

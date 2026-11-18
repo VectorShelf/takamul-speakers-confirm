@@ -79,12 +79,13 @@
   });
   function onSuccess(ref) {
     try { localStorage.removeItem(DRAFT); sessionStorage.removeItem(KEY); } catch (e) { }
-    el("refNo").textContent = ref; f.hidden = true; okEl.hidden = false; okEl.focus(); window.scrollTo({ top: 0, behavior: "smooth" });
+    el("refNo").textContent = ref; f.hidden = true; okEl.hidden = false; showOk();
   }
   function onDemo() {
     el("okTitle").textContent = "تم فحص البيانات"; el("okText").textContent = "هذه نسخة تجريبية للمعاينة: لم يُرسل أي شيء ولم يُحفظ تأكيد المشاركة."; el("refLine").hidden = true;
-    f.hidden = true; okEl.hidden = false; okEl.focus(); window.scrollTo({ top: 0, behavior: "smooth" });
+    f.hidden = true; okEl.hidden = false; showOk();
   }
+  function showOk() { document.body.classList.add("done"); okEl.focus({ preventScroll: true }); okEl.scrollIntoView({ behavior: "smooth", block: "center" }); }
   if (DEMO) { el("demo").hidden = false; }
   syncMode();
 })();
